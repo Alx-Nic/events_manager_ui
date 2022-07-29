@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <v-card flat>
+  <div @keyup.enter="submit">
+    <v-card flat max-width="500">
       <v-card-title>
         <p>Please Login</p>
       </v-card-title>
       <v-card-text>
-        <v-form v-model="valid" class="px-4">
+        <v-form v-model="valid" class="px-4" >
           <v-text-field
             label="Username"
             :rules="[rules.required]"
@@ -16,11 +16,11 @@
             v-model="payload.password"
             :rules="[rules.required]"
             :type="show ? 'text' : 'password'"
-            append-icon="mdi-eye"
+            append-icon="mdi-eye"            
             @click:append="show = !show"
           ></v-text-field>
-
-          <v-btn @click.prevent="submit" :disabled="!valid" color="primary"
+          
+          <v-btn  @click.prevent="submit" :disabled="!valid" color="primary"
             >login</v-btn
           >
         </v-form>
@@ -49,7 +49,7 @@ export default {
   methods: {
     ...mapActions(["performLogIn"]),
     async submit() {
-      this.performLogIn(this.payload);
+      if (this.valid) this.performLogIn(this.payload);      
     },
   },
 };

@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <myNavBar></myNavBar>
     <v-main>
       <v-container fluid>
         <router-view />
@@ -9,10 +10,11 @@
 </template>
 
 <script>
-export default {
-  name: "App",
+import  myNavBar from "@/components/system/myNavBar.vue";
 
-  data: () => ({
-  }),
+export default {
+  components: { myNavBar },
+  name: "App",
+  data: () => ({}),
 };
 </script>

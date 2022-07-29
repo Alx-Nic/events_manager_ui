@@ -1,4 +1,5 @@
 import {authenticate} from "@/api/Auth.api";
+import router from "@/router";
 //import router from "@/router"; 
 
 const state = {
@@ -18,7 +19,8 @@ const actions = {
                 firstName: res.data.firstName,
                 lastName: res.data.lastName,
                 role: res.data.role,
-                userId: res.data.userId
+                userId: res.data.userId,
+                token: res.data.token
             }
 
             commit('updateCurrentUser', currentUser);
@@ -37,6 +39,8 @@ const actions = {
                     console.log("Role not identified");
                     break;
             }   
+
+            router.push("/");
         }).catch((err) => {
             if (err.response) {
                 console.log("Server responded with error.");
@@ -46,17 +50,26 @@ const actions = {
                 console.log('Error', err.message);
             }
         }); 
+    },
+    logout({ commit}){
+        commit('doLogout');
+        router.push('/login')
+        console.log('Log out request.');
     }
 }
 
 const mutations = {
     updateCurrentUser: (currentState, userData) => {
         currentState.currentUser = userData;
+    },
+    doLogout: (currentState) => {
+        currentState.currentUser = {}
     }
 }
 
 const getters = {
-    currentUser: (state) => state.currentUser
+    currentUser: (state) => state.currentUser,
+    isLoggedIn: (state) =>  state.currentUser.token != null 
 }
 
 export default {state, actions, mutations, getters};
