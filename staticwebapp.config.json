@@ -1,10 +1,5 @@
 {
-    "routes": [
-        {
-            "route": "/registerguest"
-        },
-        {
-            "route": "/register"
-        }
-    ]
+  "navigationFallback": {
+    "rewrite": "index.html"
+  }
 }
