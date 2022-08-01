@@ -1,0 +1,10 @@
+{
+    "routes": [
+        {
+            "route": "/registerguest"
+        },
+        {
+            "route": "/register"
+        }
+    ]
+}
