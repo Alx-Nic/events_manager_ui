@@ -5,7 +5,6 @@
         <p>Please Login</p>
       </v-card-title>
       <v-card-text>
-        <p>With new json</p>
         <v-form v-model="valid" class="px-4" >
           <v-text-field
             label="Username"
