@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <v-card max-width="320px" v-if="totalAnswers >0" flat>
+      <v-card max-width="320px" v-if="totalAnswers > 0" flat>
         <v-card-title primary-title>
           Total number of guests: {{ totalNumberOfGuests }}
         </v-card-title>
@@ -19,7 +19,7 @@
           </v-container>
         </v-card-text>
         <v-card-actions class="mt-n10">
-          <v-btn color="blue" class="white--text">email report</v-btn>
+          <v-btn color="blue" class="white--text">Generate report</v-btn>
         </v-card-actions>
       </v-card>
 
@@ -40,7 +40,22 @@
     </div>
 
     <v-app-bar fixed bottom>
-      <v-toolbar-title> Answers </v-toolbar-title>
+      <!-- <v-toolbar-title> Answers </v-toolbar-title> -->
+
+      <v-btn icon @click="findGuest = !findGuest" :color="findGuest? 'primary' : 'grey'">
+        <v-icon>mdi-account-search-outline</v-icon>
+      </v-btn>
+
+      <v-text-field
+      v-show="findGuest"
+        rounded
+        dense
+        outlined
+        hide-details="auto"
+        name="search"
+        label="Find Guest"
+        v-model="textToSearch"
+      ></v-text-field>
 
       <v-spacer></v-spacer>
 
@@ -86,7 +101,9 @@ export default {
       participatingGuests: [],
       decliningGuests: [],
       unsureGuests: [],
-      selectedFilters: ['Yes', 'No', 'Maybee'],
+      selectedFilters: ["Yes", "No", "Maybee"],
+      findGuest:false,
+      textToSearch:""
     };
   },
   computed: {
@@ -94,20 +111,28 @@ export default {
       let selection = [];
 
       if (this.one) {
-        selection.push('Yes');
+        selection.push("Yes");
       }
       if (this.two) {
-        selection.push('No');
+        selection.push("No");
       }
       if (this.three) {
-        selection.push('Maybee');
+        selection.push("Maybee");
       }
       return selection;
     },
     filteredGuests() {
-      return this.guests.filter((guest) =>
+      let firstPassForParticipatingStatusFilter = this.guests.filter((guest) =>
         this.computedSelection.includes(guest.participatingStatus)
       );
+
+      let secondPassForNameSearch = firstPassForParticipatingStatusFilter.filter((guest) => 
+      {
+        return guest.firstName.toLowerCase().includes(this.textToSearch) ||
+               guest.lastName.toLowerCase().includes(this.textToSearch)
+      });
+    
+      return secondPassForNameSearch
     },
     totalNumberOfGuests() {
       let numberOfGuests = 0;
@@ -177,13 +202,13 @@ export default {
         });
 
         this.decliningGuests = this.guests.filter(
-          (x) => x.participatingStatus == 'No'
+          (x) => x.participatingStatus == "No"
         );
         this.participatingGuests = this.guests.filter(
-          (x) => x.participatingStatus == 'Yes'
+          (x) => x.participatingStatus == "Yes"
         );
         this.unsureGuests = this.guests.filter(
-          (x) => x.participatingStatus == 'Maybee'
+          (x) => x.participatingStatus == "Maybee"
         );
       }
     });
