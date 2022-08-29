@@ -116,7 +116,6 @@ export default {
   },
   methods: {
     copyLinkToClipboard: function () {
-      console.log(this.shareLink);
       navigator.clipboard.writeText(this.shareLink);
       this.snackbar = true;
     },
