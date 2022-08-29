@@ -81,7 +81,7 @@
           <QrcodeVue
             :value="shareLink"
             :size="qrCodeSize"
-            render-as="svg"
+            render-as="canvas"
           ></QrcodeVue>
         </v-card-text>
 
