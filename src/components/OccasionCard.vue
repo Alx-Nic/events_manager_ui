@@ -15,7 +15,7 @@
       <div>
         Location : <b>{{ occasionCardDetails.eventLocation }}</b>
       </div>
-    </v-card-subtitle >
+    </v-card-subtitle>
     <v-container class="mt-n6">
       <v-card-text>
         <v-row>
@@ -52,6 +52,11 @@
                 ><v-icon>mdi-export-variant</v-icon></v-btn
               >
             </div>
+            <div>
+              <v-btn icon color="blue" @click.prevent="qrCodeDialog = true"
+                ><v-icon>mdi-qrcode-scan</v-icon></v-btn
+              >
+            </div>
           </v-col>
         </v-row>
       </v-card-text>
@@ -65,17 +70,47 @@
         </v-btn>
       </template>
     </v-snackbar>
+
+    <v-dialog v-model="qrCodeDialog" >
+      <v-card>
+        <v-card-title primary-title> Share QrCode </v-card-title>
+        <v-card-subtitle>
+          <div>Use this qrcode to share your invitaion.</div>
+        </v-card-subtitle>
+        <v-card-text>
+          <QrcodeVue
+            :value="shareLink"
+            :size="qrCodeSize"
+            render-as="svg"
+          ></QrcodeVue>
+        </v-card-text>
+
+        <v-card-actions> </v-card-actions>
+        <v-card-actions>
+          <v-btn color="primary" @click="qrCodeDialog = !qrCodeDialog"
+            >Close</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-card>
 </template>
 
 <script>
+import QrcodeVue from "qrcode.vue";
+
 export default {
   props: {
     occasionCardDetails: {},
   },
+  components: {
+    QrcodeVue,
+  },
   data() {
     return {
+      qrCodeSize: 0,
       shareLink: "",
+      qrCodeDialog: false,
       snackbar: false,
     };
   },
@@ -85,10 +120,30 @@ export default {
       navigator.clipboard.writeText(this.shareLink);
       this.snackbar = true;
     },
+    computeScreenSize: function(screensize){
+      console.log("computeRunned");
+      return screensize > 500
+        ? 450
+        : screensize * 0.7;
+
+    }
+  },
+  computed:{
+    screenSize: function(){
+      return this.$vuetify.breakpoint.width
+    }
+  },
+  watch:{
+    screenSize: function(val){
+     this.qrCodeSize=  this.computeScreenSize(val)
+    }
   },
   created: async function () {
+    this.qrCodeSize =  this.computeScreenSize(this.screenSize)
+   
     // console.log("Received Data: ");
     // console.log(this.occasionCardDetails);
+    
     this.shareLink =
       location.origin +
       "/registerguest?eventcode=" +
