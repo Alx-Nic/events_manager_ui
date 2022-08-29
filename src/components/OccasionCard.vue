@@ -120,7 +120,6 @@ export default {
       this.snackbar = true;
     },
     computeScreenSize: function(screensize){
-      console.log("computeRunned");
       return screensize > 500
         ? 450
         : screensize * 0.7;
