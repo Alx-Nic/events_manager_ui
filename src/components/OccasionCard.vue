@@ -120,10 +120,7 @@ export default {
       this.snackbar = true;
     },
     computeScreenSize: function(screensize){
-      return screensize > 500
-        ? 450
-        : screensize * 0.7;
-
+      return screensize > 500 ? 450 : screensize * 0.7;
     }
   },
   computed:{
@@ -137,11 +134,8 @@ export default {
     }
   },
   created: async function () {
-    this.qrCodeSize =  this.computeScreenSize(this.screenSize)
+    this.qrCodeSize =  this.computeScreenSize(this.screenSize);
    
-    // console.log("Received Data: ");
-    // console.log(this.occasionCardDetails);
-    
     this.shareLink =
       location.origin +
       "/registerguest?eventcode=" +
