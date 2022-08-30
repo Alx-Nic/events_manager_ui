@@ -26,6 +26,7 @@
               ></v-text-field>
 
               <v-btn
+              :loading="loading"
                 @click.prevent="submit"
                 :disabled="!valid"
                 class="mt-4"
@@ -92,10 +93,12 @@ export default {
         required: (value) => !!value || "Required.",
       },
       customer: {},
+      loading:false
     };
   },
   methods: {
     submit: async function () {
+      this.loading = true
       if (this.valid) {
         await postNewCustomer("v1", this.payload)
           .then((res) => {
@@ -108,6 +111,7 @@ export default {
           .catch((res) => {
             this.errorPosting = true;
             this.errorMessage = res.message;
+            this.loading = false
           });
       }
     },
