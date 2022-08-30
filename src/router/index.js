@@ -12,6 +12,7 @@ import RegisterClientView from '@/views/RegisterClientView.vue'
 import OccasionCreate from '@/views/OccasionCreateView.vue'
 import OccasionsView from '@/views/OccasionsView.vue'
 import GuestsView from '@/views/GuestsView.vue'
+import ViewAllCustomers from '@/views/ViewAllCustomers.vue'
 
 
 Vue.use(VueRouter)
@@ -67,7 +68,13 @@ const routes = [
     path: '/registerguest',
     name: 'registerGuest',
     component : RegisterGuest
+  },
+  {
+    path: '/customers',
+    name: 'viewAllCustomers',
+    component : ViewAllCustomers
   }
+
   
 ]
 

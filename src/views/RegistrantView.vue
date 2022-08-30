@@ -15,7 +15,7 @@
                 <v-btn color="primary" small text to="registerclient"
                   >Add Customer</v-btn
                 >
-                <v-btn color="primary" small text>View Customer</v-btn>
+                <v-btn color="primary" small text to="customers">View Customer</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>

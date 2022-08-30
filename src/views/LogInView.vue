@@ -1,5 +1,8 @@
 <template>
   <div @keyup.enter="submit">
+    <v-alert type="error" dismissible :value="loginFailed.failed">
+     {{loginFailed.message}}
+    </v-alert>
     <v-card flat max-width="500">
       <v-card-title>
         <p>Please Login</p>
@@ -20,7 +23,7 @@
             @click:append="show = !show"
           ></v-text-field>
           
-          <v-btn  @click.prevent="submit" :disabled="!valid" color="primary"
+          <v-btn :loading="dataSent"  @click.prevent="submit" :disabled="!valid" color="primary"
             >login</v-btn
           >
         </v-form>
@@ -30,7 +33,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data() {
@@ -44,13 +47,31 @@ export default {
         required: (value) => !!value || "Required.",
       },
       valid: false,
+      dataSent: false
     };
+  },
+  computed: {
+    ...mapGetters({loginFailed: 'hasLoginFailed'})
   },
   methods: {
     ...mapActions(["performLogIn"]),
     async submit() {
-      if (this.valid) this.performLogIn(this.payload);      
+      if (this.valid) 
+      {
+        this.performLogIn(this.payload);
+        this.dataSent = true
+        
+      }
     },
+  },
+  watch: {
+    loginFailed(){
+      if (this.loginFailed.failed == true) {
+        this.dataSent = false
+      }
+    }
+  },
+  mounted() {
   },
 };
 </script>

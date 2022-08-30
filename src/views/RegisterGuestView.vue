@@ -76,6 +76,7 @@
                 v-model="payload.specialNotes"
               ></v-textarea>
               <v-btn
+                :loading="loading"
                 :disabled="!valid"
                 class="mt-4"
                 color="primary"
@@ -87,6 +88,9 @@
         </v-form>
         <v-card-actions> </v-card-actions>
       </v-card>
+       <v-alert dismissible type="error" v-model="errorPosting">
+        {{ errorMessage }}
+      </v-alert>
     </div>
     <div v-if="postSubmission">
       <v-alert prominent type="success">
@@ -118,14 +122,22 @@ export default {
       rules: {
         required: (value) => !!value || "Required.",
       },
+      loading: false,
+      errorMessage:"",
+      errorPosting:false
     };
   },
   methods: {
     submit: async function () {
+      this.loading = true;
       await postNewGuest("v1", this.payload).then((res) => {
         if (res.status == 200) {
           this.postSubmission = true;
         }
+      }).catch((res) => {
+        this.loading = false,
+        this.errorPosting = true,
+        this.errorMessage = res.message
       });
     },
   },
