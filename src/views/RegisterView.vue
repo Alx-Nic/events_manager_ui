@@ -73,7 +73,7 @@
     <div v-if="!preSubmit">
       <v-alert prominent type="success">
         Thank you for registering ! <br />
-        You will be redirected to the login screen.
+        Please check your email address and confirm the registration. 
       </v-alert>
     </div>
   </div>

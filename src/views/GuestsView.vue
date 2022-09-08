@@ -6,12 +6,18 @@
 
     <div>
       <v-card max-width="320px" v-if="totalAnswers > 0" flat>
-        <v-card-title primary-title>
-          Total number of guests: {{ totalNumberOfGuests }}
-        </v-card-title>
+        <v-card-title primary-title> View replies: </v-card-title>
 
-        <v-card-subtitle>Total answers: {{ totalAnswers }}</v-card-subtitle>
+        <v-card-subtitle> </v-card-subtitle>
         <v-card-text>
+          <div>
+            <p>Total number of replies: {{ totalAnswers }}</p>
+            <p>
+              Total number of guests participating:
+              {{ totalNumberOfGuestsParticipating }}
+            </p>
+          </div>
+
           <v-container class="d-flex justify-start mt-n3">
             <p class="mx-3">{{ totalNumberOfAdults }} Adults</p>
             <p class="mx-3">{{ totalNumberOfChildrens }} Childrens</p>
@@ -19,10 +25,14 @@
           </v-container>
         </v-card-text>
         <v-card-actions class="mt-n10">
+          <VueJsonToCsv :json-data="guests">
+
           <v-btn color="blue" class="white--text">Generate report</v-btn>
+          </VueJsonToCsv>
         </v-card-actions>
       </v-card>
 
+      
       <v-container v-if="totalAnswers > 0">
         <v-row>
           <v-col
@@ -42,12 +52,16 @@
     <v-app-bar fixed bottom>
       <!-- <v-toolbar-title> Answers </v-toolbar-title> -->
 
-      <v-btn icon @click="findGuest = !findGuest" :color="findGuest? 'primary' : 'grey'">
+      <v-btn
+        icon
+        @click="findGuest = !findGuest"
+        :color="findGuest ? 'primary' : 'grey'"
+      >
         <v-icon>mdi-account-search-outline</v-icon>
       </v-btn>
 
       <v-text-field
-      v-show="findGuest"
+        v-show="findGuest"
         rounded
         dense
         outlined
@@ -86,9 +100,10 @@
 <script>
 import GuestCard from "@/components/GuestCard.vue";
 import { getAllGuestByOccasionId } from "@/api/Guests.Api";
+import VueJsonToCsv from 'vue-json-to-csv'
 
 export default {
-  components: { GuestCard },
+  components: { GuestCard , VueJsonToCsv},
   data() {
     return {
       one: true,
@@ -102,8 +117,9 @@ export default {
       decliningGuests: [],
       unsureGuests: [],
       selectedFilters: ["Yes", "No", "Maybee"],
-      findGuest:false,
-      textToSearch:""
+      findGuest: false,
+      textToSearch: "",
+      foo: [],
     };
   },
   computed: {
@@ -126,29 +142,30 @@ export default {
         this.computedSelection.includes(guest.participatingStatus)
       );
 
-      let secondPassForNameSearch = firstPassForParticipatingStatusFilter.filter((guest) => 
-      {
-        return guest.firstName.toLowerCase().includes(this.textToSearch) ||
-               guest.lastName.toLowerCase().includes(this.textToSearch)
-      });
-    
-      return secondPassForNameSearch
+      let secondPassForNameSearch =
+        firstPassForParticipatingStatusFilter.filter((guest) => {
+          return (
+            guest.firstName.toLowerCase().includes(this.textToSearch) ||
+            guest.lastName.toLowerCase().includes(this.textToSearch)
+          );
+        });
+
+      return secondPassForNameSearch;
     },
-    totalNumberOfGuests() {
+    totalNumberOfGuestsParticipating() {
       let numberOfGuests = 0;
 
-      if (this.guests.length != 0) {
-        this.guests.forEach((x) => {
-          numberOfGuests += x.totalPersons;
-        });
-      }
+      this.participatingGuests.forEach(
+        (x) => (numberOfGuests += x.totalPersons)
+      );
+
       return numberOfGuests;
     },
     totalNumberOfBabies() {
       let baby = 0;
 
-      if (this.guests.length != 0) {
-        this.guests.forEach((x) => {
+      if (this.participatingGuests.length != 0) {
+        this.participatingGuests.forEach((x) => {
           baby += x.babies;
         });
       }
@@ -157,8 +174,8 @@ export default {
     },
     totalNumberOfChildrens() {
       let child = 0;
-      if (this.guests.length != 0) {
-        this.guests.forEach((x) => {
+      if (this.participatingGuests.length != 0) {
+        this.participatingGuests.forEach((x) => {
           child += x.childrens;
         });
       }
@@ -167,8 +184,8 @@ export default {
     },
     totalNumberOfAdults() {
       let adults = 0;
-      if (this.guests.length != 0) {
-        this.guests.forEach((x) => {
+      if (this.participatingGuests.length != 0) {
+        this.participatingGuests.forEach((x) => {
           adults += x.adults;
         });
       }
@@ -194,6 +211,8 @@ export default {
           eventCode: x.eventCode,
           totalPersons: x.babies + x.childrens + x.adults,
         }));
+
+        console.log(this.guests);
 
         this.totalAnswers = this.guests.length;
 
