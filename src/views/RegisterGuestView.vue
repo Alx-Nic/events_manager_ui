@@ -46,6 +46,7 @@
               <v-row>
                 <v-col cols="4">
                   <v-select
+                    :disabled="disableNotNecessaryFields"
                     :items="numberPersons"
                     v-model="payload.babies"
                     append-icon="mdi-human-baby-changing-table"
@@ -54,6 +55,7 @@
                 </v-col>
                 <v-col cols="4">
                   <v-select
+                    :disabled="disableNotNecessaryFields"
                     :items="numberPersons"
                     v-model="payload.childrens"
                     append-icon="mdi-human-male-child"
@@ -62,6 +64,7 @@
                 </v-col>
                 <v-col cols="4">
                   <v-select
+                    :disabled="disableNotNecessaryFields"
                     :items="numberPersons"
                     v-model="payload.adults"
                     append-icon="mdi-human-male-female"
@@ -88,7 +91,7 @@
         </v-form>
         <v-card-actions> </v-card-actions>
       </v-card>
-       <v-alert dismissible type="error" v-model="errorPosting">
+      <v-alert dismissible type="error" v-model="errorPosting">
         {{ errorMessage }}
       </v-alert>
     </div>
@@ -114,6 +117,7 @@ export default {
       numberPersons: [{ text: "none", value: 0 }, 1, 2, 3, 4, 5, 6],
       valid: false,
       payload: {},
+      disableNotNecessaryFields: false,
       items: [
         { text: "Yes", value: "Yes" },
         { text: "No", value: "No" },
@@ -123,22 +127,34 @@ export default {
         required: (value) => !!value || "Required.",
       },
       loading: false,
-      errorMessage:"",
-      errorPosting:false
+      errorMessage: "",
+      errorPosting: false,
     };
   },
   methods: {
     submit: async function () {
       this.loading = true;
-      await postNewGuest("v1", this.payload).then((res) => {
-        if (res.status == 200) {
-          this.postSubmission = true;
-        }
-      }).catch((res) => {
-        this.loading = false,
-        this.errorPosting = true,
-        this.errorMessage = res.message
-      });
+      await postNewGuest("v1", this.payload)
+        .then((res) => {
+          if (res.status == 200) {
+            this.postSubmission = true;
+          }
+        })
+        .catch((res) => {
+          (this.loading = false),
+            (this.errorPosting = true),
+            (this.errorMessage = res.message);
+        });
+    },
+  },
+  watch: {
+    "payload.participatingStatus": function (val) {
+      if (val == "No") {
+        this.payload.adults = 1;
+        this.disableNotNecessaryFields = true;
+      } else {
+        this.disableNotNecessaryFields = false;
+      }
     },
   },
   mounted() {

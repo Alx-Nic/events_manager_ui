@@ -13,6 +13,7 @@ import OccasionCreate from '@/views/OccasionCreateView.vue'
 import OccasionsView from '@/views/OccasionsView.vue'
 import GuestsView from '@/views/GuestsView.vue'
 import ViewAllCustomers from '@/views/ViewAllCustomers.vue'
+import EmailConfirmed from '@/views/EmailConfirmedView.vue'
 
 
 Vue.use(VueRouter)
@@ -73,6 +74,11 @@ const routes = [
     path: '/customers',
     name: 'viewAllCustomers',
     component : ViewAllCustomers
+  },
+  {
+    path: '/emailconfirmed',
+    name: 'emailConfirmed',
+    component : EmailConfirmed
   }
 
   
@@ -86,7 +92,7 @@ const router = new VueRouter({
 export default router
 
 router.beforeEach((to, from, next) =>{
-  const publicPages = ['/registerguest','/register','/login'];
+  const publicPages = ['/registerguest','/register','/login','/emailconfirmed'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = store.getters.isLoggedIn;
 
