@@ -12,20 +12,25 @@
     >
       <template> </template>
       <!-- <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon> -->
-      <v-toolbar-title class="white--text">MyRSVP</v-toolbar-title>
+      <v-toolbar-title class="white--text">RSVP</v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <v-icon class="ml-n8" size="35px" color="white"
-        >mdi-email-open-outline</v-icon
-      >
+      <v-icon class="" large color="white">mdi-email-open-outline</v-icon>
       <v-spacer></v-spacer>
+
       <v-btn
         @click.prevent="logMeOut"
         icon
-        v-if="!routes.includes(this.$route.name)"
+        v-show="!routes.includes(this.$route.name)"
       >
         <v-icon color="white">mdi-logout-variant</v-icon>
       </v-btn>
+
+       <v-icon color="rgba(0,0,0,0.0)"
+       v-show="routes.includes(this.$route.name)"
+       >
+        mdi-logout-variant
+      </v-icon>
     </v-app-bar>
   </nav>
 </template>
@@ -36,7 +41,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      routes: ["login", "registerguest", "register"],
+      routes: ["login", "registerGuest", "register"],
       drawer: null,
     };
   },
