@@ -1,13 +1,13 @@
 <template>
-  <v-card class="mx-auto my-5" width="310">
-    <v-app-bar flat color="#6A76AB">
+  <v-card class="mx-auto my-5" min-height="220" min-width="280" max-width="360">
+    <v-app-bar flat color="light-blue">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+          gradient="to top right, rgba(100,115,201,.5), rgba(25,32,72,.5)"
         ></v-img>
       </template>
-      <v-toolbar-title>
+      <v-toolbar-title class="white--text">
         {{ occasionCardDetails.eventName }}
       </v-toolbar-title>
     </v-app-bar>

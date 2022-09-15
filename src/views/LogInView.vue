@@ -23,7 +23,7 @@
             @click:append="show = !show"
           ></v-text-field>
           
-          <v-btn :loading="dataSent"  @click.prevent="submit" :disabled="!valid" color="primary"
+          <v-btn color="primary" :loading="dataSent"  @click.prevent="submit" :disabled="!valid" 
             >login</v-btn
           >
         </v-form>
