@@ -1,6 +1,6 @@
 <template>
-  <v-card class="mx-auto my-2" min-height="220" min-width="300" max-width="300">
-    <v-app-bar flat color="#6A76AB">
+  <v-card class="mx-auto my-2" min-height="220" min-width="280" max-width="360">
+    <v-app-bar flat color="light-blue">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"

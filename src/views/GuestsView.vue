@@ -11,35 +11,37 @@
         <v-card-subtitle> </v-card-subtitle>
         <v-card-text>
           <div>
-            <p>Total number of replies: {{ totalAnswers }}</p>
+            <p>Total number of replies: <b>{{ totalAnswers }}</b></p>
             <p>
               Total number of guests participating:
-              {{ totalNumberOfGuestsParticipating }}
+              <b>{{ totalNumberOfGuestsParticipating }}</b>
             </p>
           </div>
 
           <v-container class="d-flex justify-start mt-n3">
-            <p class="mx-3">{{ totalNumberOfAdults }} Adults</p>
-            <p class="mx-3">{{ totalNumberOfChildrens }} Childrens</p>
-            <p class="mx-3">{{ totalNumberOfBabies }} Babies</p>
+            <p class="mx-3"><b>{{ totalNumberOfAdults }}</b> Adults</p>
+            <p class="mx-3"><b>{{ totalNumberOfChildrens }}</b> Childrens</p>
+            <p class="mx-3"><b>{{ totalNumberOfBabies }}</b> Babies</p>
           </v-container>
         </v-card-text>
         <v-card-actions class="mt-n10">
           <VueJsonToCsv :json-data="guests">
-
-          <v-btn color="blue" class="white--text">Generate report</v-btn>
+            <v-btn color="blue" class="white--text mx-2">Generate report</v-btn>
           </VueJsonToCsv>
+            <v-btn color="secondary"  @click="findGuest = !findGuest" outlined>Find Guest</v-btn>
+          
         </v-card-actions>
       </v-card>
 
       
-      <v-container v-if="totalAnswers > 0">
+      <v-container id="guestContainer" v-if="totalAnswers > 0">
         <v-row>
           <v-col
             xs="12"
             sm="6"
-            md="4"
+            md="6"
             lg="4"
+            class="mx-auto"
             v-for="guest in filteredGuests"
             :key="guest.id"
           >
@@ -49,7 +51,7 @@
       </v-container>
     </div>
 
-    <v-app-bar fixed bottom>
+    <v-app-bar fixed bottom  >
       <!-- <v-toolbar-title> Answers </v-toolbar-title> -->
 
       <v-btn
@@ -238,4 +240,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+#guestContainer {
+    margin-bottom: 40px;    
+}
+</style>
+
+
+
