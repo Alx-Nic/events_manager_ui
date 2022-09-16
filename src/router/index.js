@@ -13,6 +13,7 @@ import OccasionCreate from '@/views/OccasionCreateView.vue'
 import OccasionsView from '@/views/OccasionsView.vue'
 import GuestsView from '@/views/GuestsView.vue'
 import ViewAllCustomers from '@/views/ViewAllCustomers.vue'
+import ViewAccessUser from '@/views/AccessUserView.vue'
 import EmailConfirmed from '@/views/EmailConfirmedView.vue'
 
 
@@ -74,6 +75,12 @@ const routes = [
     path: '/customers',
     name: 'viewAllCustomers',
     component : ViewAllCustomers
+  },
+  {
+    path: '/customers/:customerId/AccessUser/',
+    name: 'viewAccessUser',
+    component : ViewAccessUser,
+
   },
   {
     path: '/emailconfirmed',
