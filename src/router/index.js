@@ -14,6 +14,7 @@ import OccasionsView from '@/views/OccasionsView.vue'
 import GuestsView from '@/views/GuestsView.vue'
 import ViewAllCustomers from '@/views/ViewAllCustomers.vue'
 import ViewAccessUser from '@/views/AccessUserView.vue'
+import EditClientView from '@/views/EditClientView.vue'
 import EmailConfirmed from '@/views/EmailConfirmedView.vue'
 
 
@@ -80,6 +81,13 @@ const routes = [
     path: '/customers/:customerId/AccessUser/',
     name: 'viewAccessUser',
     component : ViewAccessUser,
+
+  },
+  {
+    path: '/customers/:customerId/Edit/',
+    name: 'editClient',
+    props: true,
+    component : EditClientView,
 
   },
   {
