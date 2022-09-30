@@ -20,17 +20,14 @@
       <div>Invite code : {{ customer.inviteCode }}</div>
     </v-card-text>
     <v-card-actions>
-      <v-container >
-        <v-row dense>
-          <v-col 
-            ><v-btn small tile color="primary" @click.prevent="createInviteCode"
+
+            <v-btn small tile color="primary" @click.prevent="createInviteCode"
               >Invite link</v-btn
-            ></v-col
+
           >
          
-          <v-col  
-            ><v-btn
-              small
+          <v-btn
+               x-small
               tile
               color="secondary"
               :to="{
@@ -38,16 +35,9 @@
                 params: { customerId: customer.id },
               }"
               >View user</v-btn
-            ></v-col
-          >
-          <v-col  
-            ><v-btn small tile color="secondary"
-              >View Occasions
-            </v-btn></v-col
-          >
-           <v-col 
-            ><v-btn
-              small
+            >
+            <v-btn
+              x-small
               tile 
               color="secondary"
               :to="{
@@ -55,10 +45,7 @@
                 params: { client: customer, customerId: customer.id },
               }"
               >Edit Client</v-btn
-            ></v-col
-          >
-        </v-row>
-      </v-container>
+            >
     </v-card-actions>
     <v-snackbar v-model="snackbar">
       Link copied to clipboard.
