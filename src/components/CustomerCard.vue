@@ -1,5 +1,5 @@
 <template>
-  <v-card min-width="280px" max-width="400px">
+  <v-card min-width="280px" max-width="410px">
     <v-app-bar flat color="light-blue">
       <template v-slot:img="{ props }">
         <v-img
@@ -20,11 +20,29 @@
       <div>Invite code : {{ customer.inviteCode }}</div>
     </v-card-text>
     <v-card-actions>
-      <v-btn small tile color="primary" @click.prevent="createInviteCode"
+      
+      <v-btn 
+        small
+        tile
+        color="primary" @click.prevent="createInviteCode"
         >Invite link</v-btn
       >
+
       <v-btn
-        x-small        
+      x-small
+      tile
+      color="secondary"
+      :to="{
+        name: 'editClient',
+        params:{
+          client: customer,
+          customerId: customer.id
+        }
+      }"
+      >Edit Client</v-btn>
+
+      <v-btn
+        x-small
         tile
         color="secondary"
         :to="{
@@ -33,7 +51,10 @@
         }"
         >View user</v-btn
       >
-      <v-btn x-small tile color="secondary">View Occasions</v-btn>
+      <v-btn
+       x-small
+      tile 
+      color="secondary">View Occasions</v-btn>
     </v-card-actions>
     <v-snackbar v-model="snackbar">
       Link copied to clipboard.
