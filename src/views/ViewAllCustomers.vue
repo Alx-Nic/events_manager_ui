@@ -40,11 +40,12 @@ export default {
     };
   },
   computed: {
-    filteredCustomers(){
-      let filtered = this.customers.filter(c =>
-      {
-        return c.customerName.toLowerCase().includes(this.textToSearch) ||
-               c.customerReference.toLowerCase().includes(this.textToSearch)
+    filteredCustomers() {
+      let filtered = this.customers.filter((c) => {
+        return (
+          c.customerName.toLowerCase().includes(this.textToSearch) ||
+          c.customerReference.toLowerCase().includes(this.textToSearch)
+        );
       });
 
       return filtered;
