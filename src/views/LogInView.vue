@@ -67,13 +67,13 @@ export default {
   computed: {
     ...mapGetters({ loginFailed: "hasLoginFailed" }),
     validation: function () {
-      return this.valid && this.cookiesEnabled;
+      return this.valid && this.cookiesEnabled && this.backendReachable
     },
   },
   methods: {
     ...mapActions(["performLogIn"]),
     async submit() {
-      if (this.valid && this.cookiesEnabled) {
+      if (this.validation) {
         this.performLogIn(this.payload);
         this.dataSent = true;
       }
