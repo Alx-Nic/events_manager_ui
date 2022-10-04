@@ -1,9 +1,8 @@
 <template>
   <div @keyup.enter="submit" v-if="dataReady">
-    {{error}}
     <!-- <div>backendReachable {{backendReachable}}</div>
     <div>cookieEnabled {{cookiesEnabled}}</div> -->
-    <v-alert type="error" :value="!backendReachable">An error has occured. Please make sure Cross-Site communication is enabled.</v-alert>
+    <v-alert type="error" :value="!backendReachable">An unexpected error has occured. Please contact the support.</v-alert>
     <v-alert type="error" dismissible :value="loginFailed.failed">
       {{ loginFailed.message }}
     </v-alert>
