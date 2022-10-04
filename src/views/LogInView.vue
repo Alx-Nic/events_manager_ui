@@ -1,5 +1,6 @@
 <template>
   <div @keyup.enter="submit" v-if="dataReady">
+    {{error}}
     <!-- <div>backendReachable {{backendReachable}}</div>
     <div>cookieEnabled {{cookiesEnabled}}</div> -->
     <v-alert type="error" :value="!backendReachable">An error has occured. Please make sure Cross-Site communication is enabled.</v-alert>
@@ -62,6 +63,7 @@ export default {
       cookiesEnabled: false,
       backendReachable : false,
       dataReady: false,
+      error:""
     };
   },
   computed: {
@@ -92,6 +94,7 @@ export default {
     }).catch( err => {
       console.log(err.code);
       this.backendReachable = false;
+      this.error = err
     });
     this.cookiesEnabled = navigator.cookieEnabled;
     this.dataReady = true;
