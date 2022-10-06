@@ -2,46 +2,46 @@
   <div>
     <div v-if="!postSubmission">
       <v-card flat>
-        <v-card-title primary-title> Register participation </v-card-title>
+        <v-card-title primary-title> {{$t("registerGuest.title")}}</v-card-title>
         <v-form v-model="valid" class="px-4">
           <v-container>
             <v-row> </v-row>
 
             <v-col cols="12" lg="10">
               <v-text-field
-                label="Event Code"
+                :label="$t('registerGuest.eventCodeLbl')"
                 v-model="payload.eventCode"
                 :rules="[rules.required]"
               ></v-text-field>
 
               <v-text-field
-                label="E-mail"
+                :label="$t('email')"
                 v-model="payload.emailAddress"
                 :rules="[rules.required]"
               ></v-text-field>
 
               <v-text-field
-                label="First Name"
+                :label="$t('firstName')"
                 v-model="payload.firstName"
                 :rules="[rules.required]"
               ></v-text-field>
               <v-text-field
-                label="Last Name"
+                :label="$t('lastName')"
                 v-model="payload.lastName"
                 :rules="[rules.required]"
               ></v-text-field>
 
               <v-text-field
-                label="Phone Number"
+                :label="$t('phoneNumber')"
                 v-model="payload.phoneNumber"
                 :rules="[rules.required]"
               ></v-text-field>
 
               <v-select
-                :items="items"
+                :items="selectParticipatingStatus"
                 :rules="[rules.required]"
                 v-model="payload.participatingStatus"
-                label="Participating status"
+                :label="$t('registerGuest.participatingStatusLbl')"
               ></v-select>
               <v-row>
                 <v-col cols="4">
@@ -50,7 +50,7 @@
                     :items="numberPersons"
                     v-model="payload.babies"
                     append-icon="mdi-human-baby-changing-table"
-                    label="Babies"
+                    :label="$t('registerGuest.babies')"
                   ></v-select>
                 </v-col>
                 <v-col cols="4">
@@ -59,7 +59,7 @@
                     :items="numberPersons"
                     v-model="payload.childrens"
                     append-icon="mdi-human-male-child"
-                    label="Childrens"
+                    :label="$t('registerGuest.childrens')"
                   ></v-select>
                 </v-col>
                 <v-col cols="4">
@@ -69,13 +69,13 @@
                     v-model="payload.adults"
                     append-icon="mdi-human-male-female"
                     :rules="[rules.required]"
-                    label="Adults"
+                    :label="$t('registerGuest.adults')"
                   ></v-select>
                 </v-col>
               </v-row>
 
               <v-textarea
-                label="Special requests"
+                :label="$t('registerGuest.specialRequest')"
                 v-model="payload.specialNotes"
               ></v-textarea>
               <v-btn
@@ -84,7 +84,7 @@
                 class="mt-4"
                 color="primary"
                 @click.prevent="submit"
-                >Submit</v-btn
+                >{{$t('submit')}}</v-btn
               >
             </v-col>
           </v-container>
@@ -97,10 +97,7 @@
     </div>
     <div v-if="postSubmission">
       <v-alert prominent type="success">
-        Grazie per aver registrato la tua risposta.
-        <br />
-        Una mail con tutti i dettagli è stata inviata al tuo indirizzo di posta
-        elettronica
+        {{$t('registerGuest.thankYouMessage')}}
       </v-alert>
     </div>
   </div>
@@ -114,7 +111,7 @@ export default {
   data() {
     return {
       postSubmission: false,
-      numberPersons: [{ text: "none", value: 0 }, 1, 2, 3, 4, 5, 6],
+      numberPersons: [{ text: "0", value: 0 }, 1, 2, 3, 4, 5, 6],
       valid: false,
       payload: {},
       disableNotNecessaryFields: false,
@@ -146,6 +143,15 @@ export default {
             (this.errorMessage = res.message);
         });
     },
+  },
+  computed: {
+    selectParticipatingStatus: function(){
+      return [
+        { text: this.$t('yes'), value: "Yes" },
+        { text: this.$t('no'), value: "No" },
+        { text: this.$t('maybee'), value: "Maybee" },
+      ]
+    }
   },
   watch: {
     "payload.participatingStatus": function (val) {
