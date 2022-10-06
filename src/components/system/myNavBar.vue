@@ -45,17 +45,10 @@
       <v-btn
         @click.prevent="logMeOut"
         icon
-        v-show="!routes.includes(this.$route.name)"
+        v-if="!routes.includes(this.$route.name)"
       >
         <v-icon color="white">mdi-logout-variant</v-icon>
-      </v-btn>
-
-      <v-icon
-        color="rgba(0,0,0,0.0)"
-        v-show="routes.includes(this.$route.name)"
-      >
-        mdi-logout-variant
-      </v-icon>
+      </v-btn >
     </v-app-bar>
   </nav>
 </template>
