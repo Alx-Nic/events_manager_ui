@@ -13,25 +13,25 @@
     </v-app-bar>
     <v-card-subtitle>
       <div>
-        Location : <b>{{ occasionCardDetails.eventLocation }}</b>
+        {{$t('occasionCard.location')}} : <b>{{ occasionCardDetails.eventLocation }}</b>
       </div>
     </v-card-subtitle>
     <v-container class="mt-n6">
       <v-card-text>
         <v-row>
           <v-col cols="6">
-            <div>Event date:</div>
+            <div>{{$t('occasionCard.eventDate')}} </div>
             <div>
               <b>{{ occasionCardDetails.eventDate }}</b>
             </div>
-            <div>Deadline:</div>
+            <div>{{$t('occasionCard.deadline')}} :</div>
             <div>
               <b>{{ occasionCardDetails.deadline }}</b>
             </div>
           </v-col>
 
           <v-col cols="3" class="px-1">
-            <div>Guests</div>
+            <div>{{$t('occasionCard.guests')}} </div>
             <div>
               <v-btn
                 icon
@@ -46,7 +46,7 @@
           </v-col>
 
           <v-col cols="3" class="px-1">
-            <div>Share</div>
+            <div>{{$t('share')}} </div>
             <div>
               <v-btn icon color="blue" @click.prevent="copyLinkToClipboard"
                 ><v-icon>mdi-export-variant</v-icon></v-btn
@@ -63,19 +63,19 @@
     </v-container>
 
     <v-snackbar v-model="snackbar">
-      Link copied to clipboard.
+      {{$t('occasionCard.snackBar.copyToClipboard')}} 
       <template v-slot:action="{ attrs }">
         <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
-          Close
+          {{$t('close')}} 
         </v-btn>
       </template>
     </v-snackbar>
 
     <v-dialog v-model="qrCodeDialog" >
       <v-card>
-        <v-card-title primary-title> Share QrCode </v-card-title>
+        <v-card-title primary-title> {{$t('occasionCard.dialog.title')}}  </v-card-title>
         <v-card-subtitle>
-          <div>Use this qrcode to share your invitaion.</div>
+          <div>{{$t('occasionCard.dialog.subtitle')}} </div>
         </v-card-subtitle>
         <v-card-text>
           <QrcodeVue
@@ -86,7 +86,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn color="primary" @click="qrCodeDialog = !qrCodeDialog"
-            >Close</v-btn
+            >{{$t('close')}} </v-btn
           >
         </v-card-actions>
         <br>

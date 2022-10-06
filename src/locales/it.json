@@ -1,0 +1,92 @@
+{
+  "greeting": "Ciao",
+  "close": "Chiudi",
+  "share": "Condividi",
+  "submit": "Invia",
+  "phoneNumber": "Numero di telefono",
+  "email": "Email",
+  "firstName": "Nome",
+  "lastName": "Cognome",
+  "yes": "Si",
+  "no": "No",
+  "maybee": "Non lo so",
+  "inviteCode": "Codice Invito",
+  "usernameLbl": "Username",
+  "passwordLbl": "Password",
+  "register": "Registrati",
+  "loginScreen": {
+    "title": "Benvenuto si prega di accedere",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password",
+    "loginButtonLabel": "Accedi",
+    "backendNotReachable": "An unexpected error has occurred. Please contact the support.",
+    "technicalCookiesRequired": "Questo sito richiedi i cookie per poter funzionare. Si prega di abilitarli."
+  },
+  "registrantView": {
+    "greeting": "Ciao",
+    "message": "Welcome to your dashboard. Here are some things for you:",
+    "customersCard": {
+      "title": "Clienti",
+      "newCustomerBtnLbl": "Aggiungi Cliente",
+      "viewCustomerBtnLbl": "Visualiza Cliente"
+    }
+  },
+  "adminView": {
+    "message": "Qui trovi i dettagli per i tuoi eventi:",
+    "noEventsMessage": "Non hai ancora programmato nessun evento",
+    "newOccasionBtn": "Aggiungi evento"
+  },
+  "occasionCard": {
+    "location": "Dove",
+    "eventDate": "Data:",
+    "deadline": "Termine limite",
+    "guests": "Invitati",
+    "snackBar": {
+      "copyToClipboard": "Link copiato"
+    },
+    "dialog": {
+      "title": "Condividi QR Code",
+      "subtitle": "Utilizza questo QR Code per condividere il tuo evento."
+    }
+  },
+  "occasionCreate": {
+    "eventNameLbl": "Nome evento",
+    "eventDateLbl": "Data evento",
+    "eventLocation": "Posto e oro del evento",
+    "deadLine": "Termine Limite",
+    "succesfullCreate": "Evento creato con successo."
+  },
+  "guestView": {
+    "noGuestAnswer": "Ancora nessuno ha risposto al tuo evento.",
+    "title": "Visualizza risposte",
+    "totalNumberOfReplies": "Numero totale risposte:",
+    "totalNumberOfGuests": "Numero totale di invitati:",
+    "adults": "Adulti",
+    "childrens": "Ragazzi",
+    "babies": "Bambini",
+    "generateReport": "Genera report",
+    "findGuest": "Trova Invitato"
+  },
+  "guestCard": {
+    "participating": "Parteciperanno",
+    "totalPersons": "Totale persone",
+    "specialRequest": "Richieste speciali"
+  },
+  "registerGuest": {
+    "title": "Registra partecipazione",
+    "eventCodeLbl": "Codice Evento",
+    "participatingStatusLbl": "Status partecipazione",
+    "babies": "Bambini",
+    "childrens": "Ragazzi",
+    "adults": "Adulti",
+    "specialRequest": "Richieste speciali",
+    "thankYouMessage": "Grazie per la tua risposta !"
+  },
+  "registerView": {
+    "usernameInUse": "Username in uso.",
+    "usernameInUsePt2": "Si prega di modificare.",
+    "subtitle": "Si prega di utilizzare il codice per la registrazione.",
+    "thankYouMessage": "Grazie per la registrazione!",
+    "thankYouMessagePt2": "Si prega di controllare l'email di conferma."
+  }
+}

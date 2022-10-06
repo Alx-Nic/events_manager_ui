@@ -1,39 +1,47 @@
 <template>
   <div v-if="ready">
     <div v-if="totalAnswers == 0">
-      <p>No guest has responded to you invitation.</p>
+      <p>{{$t("guestView.noGuestAnswer")}}</p>
     </div>
 
     <div>
       <v-card max-width="320px" v-if="totalAnswers > 0" flat>
-        <v-card-title primary-title> View replies: </v-card-title>
+        <v-card-title primary-title>{{$t("guestView.title")}}</v-card-title>
 
-        <v-card-subtitle> </v-card-subtitle>
+        <v-card-subtitle></v-card-subtitle>
         <v-card-text>
           <div>
-            <p>Total number of replies: <b>{{ totalAnswers }}</b></p>
             <p>
-              Total number of guests participating:
+              {{$t("guestView.totalNumberOfReplies")}} <b>{{ totalAnswers }}</b>
+            </p>
+            <p>
+              {{$t("guestView.totalNumberOfGuests")}} 
               <b>{{ totalNumberOfGuestsParticipating }}</b>
             </p>
           </div>
 
           <v-container class="d-flex justify-start mt-n3">
-            <p class="mx-3"><b>{{ totalNumberOfAdults }}</b> Adults</p>
-            <p class="mx-3"><b>{{ totalNumberOfChildrens }}</b> Childrens</p>
-            <p class="mx-3"><b>{{ totalNumberOfBabies }}</b> Babies</p>
+            <p class="mx-3">
+              <b>{{ totalNumberOfAdults }}</b> {{$t("guestView.adults")}}
+            </p>
+            <p class="mx-3">
+              <b>{{ totalNumberOfChildrens }}</b> {{$t("guestView.childrens")}}
+            </p>
+            <p class="mx-3">
+              <b>{{ totalNumberOfBabies }}</b> {{$t("guestView.babies")}}
+            </p>
           </v-container>
         </v-card-text>
         <v-card-actions class="mt-n10">
           <VueJsonToCsv :json-data="guests">
-            <v-btn color="blue" class="white--text mx-2">Generate report</v-btn>
+            <v-btn color="blue" class="white--text mx-2">{{$t("guestView.generateReport")}}</v-btn>
           </VueJsonToCsv>
-            <v-btn color="secondary"  @click="findGuest = !findGuest" outlined>Find Guest</v-btn>
-          
+          <v-btn color="secondary" @click="findGuest = !findGuest" outlined
+            >{{$t("guestView.findGuest")}}</v-btn
+          >
         </v-card-actions>
       </v-card>
 
-      
       <v-container id="guestContainer" v-if="totalAnswers > 0">
         <v-row>
           <v-col
@@ -51,7 +59,7 @@
       </v-container>
     </div>
 
-    <v-app-bar fixed bottom  >
+    <v-app-bar fixed bottom>
       <!-- <v-toolbar-title> Answers </v-toolbar-title> -->
 
       <v-btn
@@ -69,7 +77,7 @@
         outlined
         hide-details="auto"
         name="search"
-        label="Find Guest"
+        :label="$t('guestView.findGuest')"
         v-model="textToSearch"
       ></v-text-field>
 
@@ -102,10 +110,10 @@
 <script>
 import GuestCard from "@/components/GuestCard.vue";
 import { getAllGuestByOccasionId } from "@/api/Guests.Api";
-import VueJsonToCsv from 'vue-json-to-csv'
+import VueJsonToCsv from "vue-json-to-csv";
 
 export default {
-  components: { GuestCard , VueJsonToCsv},
+  components: { GuestCard, VueJsonToCsv },
   data() {
     return {
       one: true,
@@ -241,11 +249,7 @@ export default {
 </script>
 
 <style scoped>
-
 #guestContainer {
-    margin-bottom: 40px;    
+  margin-bottom: 40px;
 }
 </style>
-
-
-

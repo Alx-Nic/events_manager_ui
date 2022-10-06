@@ -1,27 +1,25 @@
 <template>
   <div @keyup.enter="submit" v-if="dataReady">
-    <!-- <div>backendReachable {{backendReachable}}</div>
-    <div>cookieEnabled {{cookiesEnabled}}</div> -->
-    <v-alert type="error" :value="!backendReachable">An unexpected error has occured. Please contact the support.</v-alert>
+    <v-alert type="error" :value="!backendReachable">{{$t('loginScreen.backendNotReachable')}}</v-alert>
     <v-alert type="error" dismissible :value="loginFailed.failed">
       {{ loginFailed.message }}
     </v-alert>
     <v-alert type="warning" prominent :value="!cookiesEnabled">
-      This app requires cookies to function. Please enable them to continue.
+      {{$t('loginScreen.technicalCookiesRequired')}}
     </v-alert>
     <v-card flat max-width="500">
       <v-card-title>
-        <p>Please Login</p>
+        <p>{{$t('loginScreen.title')}}</p>
       </v-card-title>
       <v-card-text>
         <v-form v-model="valid" class="px-4">
           <v-text-field
-            label="Username"
+            :label="$t('loginScreen.usernameLabel')"
             :rules="[rules.required]"
             v-model="payload.username"
           ></v-text-field>
           <v-text-field
-            label="Password"
+            :label="$t('loginScreen.passwordLabel')"
             v-model="payload.password"
             :rules="[rules.required]"
             :type="show ? 'text' : 'password'"
@@ -34,7 +32,7 @@
             :loading="dataSent"
             @click.prevent="submit"
             :disabled="!validation"
-            >login</v-btn
+            >{{$t('loginScreen.loginButtonLabel')}}</v-btn
           >
         </v-form>
       </v-card-text>

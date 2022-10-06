@@ -12,7 +12,7 @@
       </v-toolbar-title>
     </v-app-bar>
     <v-card-subtitle>
-      <div>Participating: {{ guest.participatingStatus }}</div>
+      <div>{{$t("guestCard.participating")}} {{ guest.participatingStatus }}</div>
       <div>
         <v-container>
           <v-row>
@@ -31,14 +31,14 @@
           </v-row>
         </v-container>
       </div>
-      <div>Total persons: {{ guest.totalPersons }}</div>
-      <div>Phone number: {{ guest.phoneNumber }}</div>
-      <div>Email: {{ guest.emailAddress }}</div>
+      <div>{{$t("guestCard.totalPersons")}}: {{ guest.totalPersons }}</div>
+      <div>{{$t("phoneNumber")}}: {{ guest.phoneNumber }}</div>
+      <div>{{$t("email")}}: {{ guest.emailAddress }}</div>
     </v-card-subtitle>
 
     <v-card-actions v-if="guest.specialNotes">
-      <v-btn text color="blue accent-4" @click="reveal = !reveal">
-        Special Request :
+      <v-btn outlined color="blue accent-4" @click="reveal = !reveal">
+        {{$t("guestCard.specialRequest")}}
       </v-btn>
     </v-card-actions>
     <v-expand-transition>
@@ -49,13 +49,13 @@
         style="height: 100%"
       >
         <v-card-text class="pb-2">
-          <p class="text-h6 text--primary">Special Request</p>
+          <p class="text-h6 text--primary">{{$t("guestCard.specialRequest")}}</p>
           <p>
             {{ guest.specialNotes }}
           </p>
         </v-card-text>
         <v-card-actions class="pt-0 ml-2">
-          <v-btn color="blue" small @click="reveal = false"> Close </v-btn>
+          <v-btn color="blue" small @click="reveal = false"> {{$t("close")}} </v-btn>
         </v-card-actions>
       </v-card>
     </v-expand-transition>
