@@ -8,29 +8,29 @@
               <v-text-field
                 :rules="[rules.required]"
                 v-model="payload.eventName"
-                label="Event name"
+                :label="$t('occasionCreate.eventNameLbl')"
               ></v-text-field>
 
               <datePicker
                 v-model="payload.eventDate"
                 :rules="[rules.required]"
-                label="Event date"
+                :label="$t('occasionCreate.eventDateLbl')"
               >
               </datePicker>
 
               <v-textarea
                 v-model="payload.eventLocation"
-                label="Event Location and hours"
+                :label="$t('occasionCreate.eventLocation')"
                 :rules="[rules.required]"
               ></v-textarea>
 
               <datePicker
                 v-model="payload.deadLine"
-                label="Dead line"
+                :label="$t('occasionCreate.deadLine')"
               ></datePicker>
 
               <v-btn v-on:click="submit" color="primary" :disabled="!valid"
-                >Submit</v-btn
+                >{{$t('submit')}}</v-btn
               >
             </v-col>
           </v-container>
@@ -40,7 +40,7 @@
 
     <div v-if="postSubmit">
       <v-alert prominent type="success">
-        Occasion created succesfully !
+       {{$t('occasionCreate.succesfullCreate')}}
       </v-alert>
     </div>
   </div>

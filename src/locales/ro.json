@@ -1,0 +1,93 @@
+{
+   "greeting": "Salut",
+   "close": "Inchide",
+   "share": "Distribue",
+   "submit": "Trimite",
+   "phoneNumber": "Număr de telefon",
+   "email": "Email",
+   "firstName": "Prenume",
+   "lastName": "Nume",
+   "yes": "Da",
+   "no": "Nu",
+   "maybee": "Nu știu",
+   "inviteCode": "Cod invitație",
+   "usernameLbl": "Username",
+   "passwordLbl": "Password",
+   "register":"Trimite",
+  
+   "loginScreen": {
+    "title": "Bine ai venit",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password",
+    "loginButtonLabel": "Autentificare",
+    "backendNotReachable": "An unexpected error has occurred. Please contact the support.",
+    "technicalCookiesRequired": "Pentru a putea continua te rugam sa permiti utilizarea cookie-urilor."
+   },
+   "registrantView": {
+    "greeting": "Salut",
+    "message": "Welcome to your dashboard. Here are some things for you:",
+    "customersCard": {
+     "title": "Clienti",
+     "newCustomerBtnLbl": "Adauga Client",
+     "viewCustomerBtnLbl": "Vezi Clienti"
+    }
+   },
+   "adminView": {
+    "message": "Aici găsești detaliile evenimentului tău:",
+    "noEventsMessage": "Nu ai nici un eveniment programat.",
+    "newOccasionBtn": "Adaugă eveniment"
+   },
+   "occasionCard": {
+    "location": "Locație",
+    "eventDate": "Data:",
+    "deadline": "Termen limită",
+    "guests": "Invitați",
+    "snackBar": {
+     "copyToClipboard": "Link copiat."
+    },
+    "dialog": {
+     "title": "Distribue QR Code",
+     "subtitle": "Folosește acest QR code pentru a distribui evenimentul tău."
+    }
+   },
+   "occasionCreate": {
+    "eventNameLbl": "Nume eveniment",
+    "eventDateLbl": "Data eveniment",
+    "eventLocation": "Locație si oră eveniment",
+    "deadLine": "Termen limită",
+    "succesfullCreate": "Eveniment creat cu succes"
+   },
+   "guestView": {
+    "noGuestAnswer": "Nu ai nici un răspuns la evenimentul tău.",
+    "title": "Răspunsuri.",
+    "totalNumberOfReplies": "Număr total de răspunsuri:",
+    "totalNumberOfGuests": "Număr total de participanți:",
+    "adults": "Adulți",
+    "childrens": "Copii",
+    "babies": "Bebe",
+    "generateReport": "Generează raport",
+    "findGuest": "Găsește invitat"
+   },
+   "guestCard": {
+    "participating": "Vor participa",
+    "totalPersons": "Total persoane",
+    "specialRequest": "Cerințe speciale"
+   },
+   "registerGuest": {
+    "title": "Inregistreaza răspuns",
+    "eventCodeLbl": "Cod eveniment",
+    "participatingStatusLbl": "Status participare",
+    "babies": "Bebe",
+    "childrens": "Copii",
+    "adults": "Adulți",
+    "specialRequest": "Cerințe speciale",
+    "thankYouMessage": "Mulțumim pentru răspuns"
+   },
+   "registerView":{
+    "usernameInUse": "Username deja existent.",
+    "usernameInUsePt2": "Te rugăm modifica.",
+    "subtitle":"Folosește codul de inregistrare",
+    "thankYouMessage" : "Multumim de înregistrare",
+    "thankYouMessagePt2": "Te rugăm contrealaza emailul pentru a confirma înregistrarea."
+   }
+  }

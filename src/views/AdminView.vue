@@ -2,14 +2,14 @@
   <div v-if="ready">
     <div v-if="usersOccasions.length != 0">
       <p>
-        Hello {{ currentUser.firstName }}, here are the details of your
-        scheduled event:
+        {{$t('greeting')}} {{ currentUser.firstName }},      
+      <br>{{$t('adminView.message')}}
       </p>
     </div>
     <div v-if="usersOccasions.length == 0">
       <p>
-        Hello {{ currentUser.firstName }}, you don`t have any events scheduled.
-        You can schedule one under.
+        {{$t('greeting')}} {{ currentUser.firstName }}, 
+        <br>{{$t('adminView.noEventsMessage')}}
       </p>
     </div>
     <v-container>
@@ -28,7 +28,7 @@
       </v-row>
     </v-container>
     <div>
-      <v-btn color="primary" to="createOccasion">Add occasion</v-btn>
+      <v-btn color="primary" to="createOccasion">{{$t('adminView.newOccasionBtn')}}</v-btn>
     </div>
   </div>
 </template>

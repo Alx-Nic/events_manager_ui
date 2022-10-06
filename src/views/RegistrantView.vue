@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <h3>Hello {{ currentUser.firstName }},</h3>
-      <p>Welcome to your dashboard. Here are some things for you:</p>
+      <h3>{{$t('registrantView.greeting')}} {{ currentUser.firstName }},</h3>
+      <p>{{$t('registrantView.message')}}</p>
     </div>
 
     <div>
@@ -11,7 +11,7 @@
           <v-col>
             <v-card>
               <v-toolbar dark flat color="primary">
-                <v-toolbar-title>Customer</v-toolbar-title>
+                <v-toolbar-title>{{$t('registrantView.customersCard.title')}}</v-toolbar-title>
               </v-toolbar>
               <v-card-actions>
                 <v-btn color="primary" small text to="registerclient"
