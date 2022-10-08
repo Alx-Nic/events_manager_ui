@@ -20,8 +20,8 @@
     "usernameLabel": "Username",
     "passwordLabel": "Password",
     "loginButtonLabel": "Autentificare",
-    "backendNotReachable": "An unexpected error has occurred. Please contact the support.",
-    "technicalCookiesRequired": "Pentru a putea continua te rugam sa permiti utilizarea cookie-urilor."
+    "backendNotReachable": "Eroare neașteptata, te rugam contactează suportul.(bcknd404)",
+    "technicalCookiesRequired": "Pentru a putea functiona acest site cookie-urile trebuiesc activate."
    },
    "registrantView": {
     "greeting": "Salut",
@@ -55,7 +55,7 @@
     "eventDateLbl": "Data eveniment",
     "eventLocation": "Locație si oră eveniment",
     "deadLine": "Termen limită",
-    "succesfullCreate": "Eveniment creat cu succes"
+    "succesfullCreate": "Eveniment creat cu succes."
    },
    "guestView": {
     "noGuestAnswer": "Nu ai nici un răspuns la evenimentul tău.",
@@ -81,23 +81,23 @@
     "childrens": "Copii",
     "adults": "Adulți",
     "specialRequest": "Cerințe speciale",
-    "thankYouMessage": "Mulțumim pentru răspuns"
+    "thankYouMessage": "Mulțumim pentru răspuns!"
    },
    "registerView":{
-    "usernameInUse": "Username deja existent.",
+    "usernameInUse": "Username deja existent!",
     "usernameInUsePt2": "Te rugăm modifica.",
     "subtitle":"Folosește codul de inregistrare",
-    "thankYouMessage" : "Multumim de înregistrare",
+    "thankYouMessage" : "Multumim de înregistrare!",
     "thankYouMessagePt2": "Te rugăm contrealaza emailul pentru a confirma înregistrarea."
    },
    "errors": {
-      "480": "Nume de utilizator inexistent.",
-      "481": "Nume de utilizator nevalidat, verifica emailul de confirmare.",
+      "480": "Nume de utilizator invalid.",
+      "481": "Nume de utilizator nevalidat, verifica emailul de confirmare și încearcă încă odată.",
       "482": "Parola gresita.",
       "483": "Cod invitatie inexistent.",
       "484": "Nume de utilizator existent.",
       "485": "Numar maxim de evenimente inregistrat.",
-      "486": "Client deja inregistrat.",
+      "486": "Client deja inregistrat, verifica emailul de confirmare și încearcă încă odată.",
       "generic" : "Eroare neasteptata, contactati serviciul de asistenta."
    }
   }
