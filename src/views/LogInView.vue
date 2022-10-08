@@ -1,9 +1,6 @@
 <template>
   <div @keyup.enter="submit" v-if="dataReady">
     <v-alert type="error" :value="!backendReachable">{{$t('loginScreen.backendNotReachable')}}</v-alert>
-    <v-alert type="error" dismissible :value="loginFailed.failed">
-      {{ loginFailed.message }}
-    </v-alert>
     <v-alert type="warning" prominent :value="!cookiesEnabled">
       {{$t('loginScreen.technicalCookiesRequired')}}
     </v-alert>
@@ -89,7 +86,6 @@ export default {
     await getAPIServiceStatus().then((res) => {
       if(res.status == 200) this.backendReachable = true;
     }).catch( err => {
-      console.log(err.code);
       this.backendReachable = false;
       this.error = err
     });

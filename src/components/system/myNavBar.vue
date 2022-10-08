@@ -48,7 +48,7 @@
         v-if="!routes.includes(this.$route.name)"
       >
         <v-icon color="white">mdi-logout-variant</v-icon>
-      </v-btn >
+      </v-btn >      
     </v-app-bar>
   </nav>
 </template>

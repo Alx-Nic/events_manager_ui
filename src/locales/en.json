@@ -13,82 +13,90 @@
    "inviteCode": "Invite Code",
    "usernameLbl": "Username",
    "passwordLbl": "Password",
-   "register":"Register",
-  
+   "register": "Register",
    "loginScreen": {
-    "title": "Welcome please login",
-    "usernameLabel": "Username",
-    "passwordLabel": "Password",
-    "loginButtonLabel": "Login",
-    "backendNotReachable": "An unexpected error has occurred. Please contact the support.",
-    "technicalCookiesRequired": "This app requires cookies to function. Please enable them to continue."
+      "title": "Welcome please login",
+      "usernameLabel": "Username",
+      "passwordLabel": "Password",
+      "loginButtonLabel": "Login",
+      "backendNotReachable": "An unexpected error has occurred. Please contact the support.(404.BackEnd)",
+      "technicalCookiesRequired": "This app requires cookies to function. Please enable them to continue."
    },
    "registrantView": {
-    "greeting": "Hello",
-    "message": "Welcome to your dashboard. Here are some things for you:",
-    "customersCard": {
-     "title": "Customers",
-     "newCustomerBtnLbl": "Add Customer",
-     "viewCustomerBtnLbl": "View Customer"
-    }
+      "greeting": "Hello",
+      "message": "Welcome to your dashboard. Here are some things for you:",
+      "customersCard": {
+         "title": "Customers",
+         "newCustomerBtnLbl": "Add Customer",
+         "viewCustomerBtnLbl": "View Customer"
+      }
    },
    "adminView": {
-    "message": "Here are the details of your scheduled events:",
-    "noEventsMessage": "You don't have any events scheduled.",
-    "newOccasionBtn": "Add occasion"
+      "message": "Here are the details of your scheduled events:",
+      "noEventsMessage": "You don't have any events scheduled.",
+      "newOccasionBtn": "Add occasion"
    },
    "occasionCard": {
-    "location": "Location",
-    "eventDate": "Event date:",
-    "deadline": "Deadline",
-    "guests": "Guests",
-    "snackBar": {
-     "copyToClipboard": "Link copied"
-    },
-    "dialog": {
-     "title": "Share QR Code",
-     "subtitle": "Use this QR Code to share your event."
-    }
+      "location": "Location",
+      "eventDate": "Event date:",
+      "deadline": "Deadline",
+      "guests": "Guests",
+      "snackBar": {
+         "copyToClipboard": "Link copied"
+      },
+      "dialog": {
+         "title": "Share QR Code",
+         "subtitle": "Use this QR Code to share your event."
+      }
    },
    "occasionCreate": {
-    "eventNameLbl": "Event Name",
-    "eventDateLbl": "Event Date",
-    "eventLocation": "Event Location and Time",
-    "deadLine": "Deadline",
-    "succesfullCreate": "Occasion created successfully"
+      "eventNameLbl": "Event Name",
+      "eventDateLbl": "Event Date",
+      "eventLocation": "Event Location and Time",
+      "deadLine": "Deadline",
+      "succesfullCreate": "Occasion created successfully"
    },
    "guestView": {
-    "noGuestAnswer": "Nobody has answered yet to your invitation.",
-    "title": "View replies",
-    "totalNumberOfReplies": "Total number of replies:",
-    "totalNumberOfGuests": "Total number of guests participating:",
-    "adults": "Adults",
-    "childrens": "Childrens",
-    "babies": "Babies",
-    "generateReport": "Generate Report",
-    "findGuest": "Find Guest"
+      "noGuestAnswer": "Nobody has answered yet to your invitation.",
+      "title": "View replies",
+      "totalNumberOfReplies": "Total number of replies:",
+      "totalNumberOfGuests": "Total number of guests participating:",
+      "adults": "Adults",
+      "childrens": "Childrens",
+      "babies": "Babies",
+      "generateReport": "Generate Report",
+      "findGuest": "Find Guest"
    },
    "guestCard": {
-    "participating": "Participating",
-    "totalPersons": "Total persons",
-    "specialRequest": "Special request"
+      "participating": "Participating",
+      "totalPersons": "Total persons",
+      "specialRequest": "Special request"
    },
    "registerGuest": {
-    "title": "Register participation",
-    "eventCodeLbl": "Event Code",
-    "participatingStatusLbl": "Participating status",
-    "babies": "Babies",
-    "childrens": "Childrens",
-    "adults": "Adults",
-    "specialRequest": "Special request",
-    "thankYouMessage": "Thank you for your answer!"
+      "title": "Register participation",
+      "eventCodeLbl": "Event Code",
+      "participatingStatusLbl": "Participating status",
+      "babies": "Babies",
+      "childrens": "Childrens",
+      "adults": "Adults",
+      "specialRequest": "Special request",
+      "thankYouMessage": "Thank you for your answer!"
    },
-   "registerView":{
-    "usernameInUse": "Username already in use.",
-    "usernameInUsePt2": "Please choose another one.",
-    "subtitle":"Please use the provided invite code for registering",
-    "thankYouMessage" : "Thank you for registering!",
-    "thankYouMessagePt2": "Please check your email address and confirm the registration."
-  
+   "registerView": {
+      "usernameInUse": "Username already in use.",
+      "usernameInUsePt2": "Please choose another one.",
+      "subtitle": "Please use the provided invite code for registering",
+      "thankYouMessage": "Thank you for registering!",
+      "thankYouMessagePt2": "Please check your email address and confirm the registration."
+   },
+   "errors": {
+      "480": "Username not found",
+      "481": "Username not confirmed, please check your confirmation email.",
+      "482": "Wrong password.",
+      "483": "Invite code not found!",
+      "484": "Username already exists.",
+      "485": "Max number of occasions reached.",
+      "486": "Client already registered.",
+      "generic" : "An unexpected error has occurred. Please contact the support."
    }
-  }
+}
