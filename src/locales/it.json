@@ -9,7 +9,7 @@
   "lastName": "Cognome",
   "yes": "Si",
   "no": "No",
-  "maybee": "Non lo so",
+  "maybee": "Forse",
   "inviteCode": "Codice Invito",
   "usernameLbl": "Username",
   "passwordLbl": "Password",
@@ -19,8 +19,8 @@
     "usernameLabel": "Username",
     "passwordLabel": "Password",
     "loginButtonLabel": "Accedi",
-    "backendNotReachable": "An unexpected error has occurred. Please contact the support.",
-    "technicalCookiesRequired": "Questo sito richiedi i cookie per poter funzionare. Si prega di abilitarli."
+    "backendNotReachable": "Errore inaspettato, si prega di contattare il supporto.(bcknd404)",
+    "technicalCookiesRequired": "Per funzionare correttamente questo sito richiede i Cookies abilitati."
   },
   "registrantView": {
     "greeting": "Ciao",
@@ -33,12 +33,12 @@
   },
   "adminView": {
     "message": "Qui trovi i dettagli per i tuoi eventi:",
-    "noEventsMessage": "Non hai ancora programmato nessun evento",
+    "noEventsMessage": "Non hai ancora programmato nessun evento.",
     "newOccasionBtn": "Aggiungi evento"
   },
   "occasionCard": {
     "location": "Dove",
-    "eventDate": "Data:",
+    "eventDate": "Data",
     "deadline": "Termine limite",
     "guests": "Invitati",
     "snackBar": {
@@ -60,7 +60,7 @@
     "noGuestAnswer": "Ancora nessuno ha risposto al tuo evento.",
     "title": "Visualizza risposte",
     "totalNumberOfReplies": "Numero totale risposte:",
-    "totalNumberOfGuests": "Numero totale di invitati:",
+    "totalNumberOfGuests": "Numero totale di partecipanti:",
     "adults": "Adulti",
     "childrens": "Ragazzi",
     "babies": "Bambini",
@@ -85,18 +85,18 @@
   "registerView": {
     "usernameInUse": "Username in uso.",
     "usernameInUsePt2": "Si prega di modificare.",
-    "subtitle": "Si prega di utilizzare il codice per la registrazione.",
+    "subtitle": "Si prega di utilizzare il codice invito per la registrazione.",
     "thankYouMessage": "Grazie per la registrazione!",
     "thankYouMessagePt2": "Si prega di controllare l'email di conferma."
   },
   "errors": {
-     "480": "Username non trovato.",
+     "480": "Username non valido.",
      "481": "Username non confirmato, si prega di verifcare l`email.",
      "482": "Password sbagliata.",
      "483": "Codice invito non trovato.",
      "484": "Username gia esistente.",
      "485": "Numero masimo di eventi ragiunto.",
-     "486": "Cliente gia registrato.",
+     "486": "Cliente gia registrato. Si prega di verificare l'email di conferma.",
      "generic" : "Errore inaspettato, si prega di contattare il supporto."
   }
 }
