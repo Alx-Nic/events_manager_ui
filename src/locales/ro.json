@@ -89,5 +89,15 @@
     "subtitle":"Folosește codul de inregistrare",
     "thankYouMessage" : "Multumim de înregistrare",
     "thankYouMessagePt2": "Te rugăm contrealaza emailul pentru a confirma înregistrarea."
+   },
+   "errors": {
+      "480": "Nume de utilizator inexistent.",
+      "481": "Nume de utilizator nevalidat, verifica emailul de confirmare.",
+      "482": "Parola gresita.",
+      "483": "Cod invitatie inexistent.",
+      "484": "Nume de utilizator existent.",
+      "485": "Numar maxim de evenimente inregistrat.",
+      "486": "Client deja inregistrat.",
+      "generic" : "Eroare neasteptata, contactati serviciul de asistenta."
    }
   }

@@ -88,5 +88,15 @@
     "subtitle": "Si prega di utilizzare il codice per la registrazione.",
     "thankYouMessage": "Grazie per la registrazione!",
     "thankYouMessagePt2": "Si prega di controllare l'email di conferma."
+  },
+  "errors": {
+     "480": "Username non trovato.",
+     "481": "Username non confirmato, si prega di verifcare l`email.",
+     "482": "Password sbagliata.",
+     "483": "Codice invito non trovato.",
+     "484": "Username gia esistente.",
+     "485": "Numero masimo di eventi ragiunto.",
+     "486": "Cliente gia registrato.",
+     "generic" : "Errore inaspettato, si prega di contattare il supporto."
   }
 }
